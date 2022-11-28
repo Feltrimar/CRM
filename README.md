@@ -1,1 +1,1 @@
-"# CRM" 
+Este es el proyecto de Felipe Trinidad de hacer un CRM usando React y Spring Boot.
