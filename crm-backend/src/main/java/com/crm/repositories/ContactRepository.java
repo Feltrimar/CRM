@@ -26,17 +26,34 @@ public class ContactRepository {
 	}
 
 	public List<Contact> getFutureContacts(Opportunity x) {
-		return null;
+		Calendar date = Calendar.getInstance();
+		List<Contact> res= new ArrayList<Contact>();
+		for(Contact o: list) {
+			if(o.getOpportunity()==x&&o.getDate().after(date)) {
+				res.add(o);
+			}
+		}
+		return res;
 	}
 
 	public List<Contact> getContacts(Opportunity x) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Contact> res= new ArrayList<Contact>();
+		for(Contact o: list) {
+			if(o.getOpportunity()==x) {
+				res.add(o);
+			}
+		}
+		return res;
 	}
 
 	public List<Contact> getContacts(ContactType type) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Contact> res= new ArrayList<Contact>();
+		for(Contact o: list) {
+			if(o.getType()==type) {
+				res.add(o);
+			}
+		}
+		return res;
 	}
     
 }
