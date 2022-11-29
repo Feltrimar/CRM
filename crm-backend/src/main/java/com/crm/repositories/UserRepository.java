@@ -11,6 +11,15 @@ import com.crm.models.User;
 public class UserRepository {
     private List<User> list = new ArrayList<User>();
     
-
+    
+    public void setUp() {
+    	User x = new User(1, "prueba1", "prueba1");
+        list.add(x);
+        }
+        
+        
+    public List<User> getAllUsers() {
+        return list;
+    }
 
 }
