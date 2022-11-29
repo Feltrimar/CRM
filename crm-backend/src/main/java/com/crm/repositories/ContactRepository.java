@@ -24,5 +24,19 @@ public class ContactRepository {
 		Contact x= new Contact(date,ContactType.CALL,y);
 		list.add(x);
 	}
+
+	public List<Contact> getFutureContacts(Opportunity x) {
+		return null;
+	}
+
+	public List<Contact> getContacts(Opportunity x) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Contact> getContacts(ContactType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }
