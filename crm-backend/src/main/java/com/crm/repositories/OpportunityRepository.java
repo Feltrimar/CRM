@@ -20,4 +20,15 @@ public class OpportunityRepository {
     public List<Opportunity> getAllOpportunities() {
         return list;
     }
+
+	public List<Opportunity> getAllCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<Opportunity> getAllNonCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    
 }
