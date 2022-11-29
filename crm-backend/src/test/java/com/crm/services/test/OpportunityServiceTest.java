@@ -1,5 +1,6 @@
 package com.crm.services.test;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +19,10 @@ public class OpportunityServiceTest {
 	OpportunityService opportunityService;
 	@Autowired
 	OpportunityRepository opportunityRepository;
-	
+		@BeforeEach
+		public void init() {
+			opportunityRepository.getAllOpportunities().clear();
+		}
 	//Testing trying to create a new Opportunity
 		@Test
 		public void testCreateOpportunity(){
@@ -33,21 +37,22 @@ public class OpportunityServiceTest {
 		public void testErrorCreateDuplicatedOpportunity(){
 			Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 			Boolean y = false;
+			opportunityRepository.setUp();
 			y=opportunityService.createOpportunity(x);
 			Assert.isTrue(!y&&opportunityRepository.getAllOpportunities().size()==1);
 		}
 	
 	
 	//Testing trying to create directly a customer from a Opportunity IT MUST SEND ERROR
-		@Test
-		public void testErrorCreateCustomer(){
-			Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-			x.setCustomer(true);
-			Boolean y = false;
-			y=opportunityService.createOpportunity(x);
-			Assert.isTrue(!y&&opportunityRepository.getAllOpportunities().size()==0);
-		}
-	
+	@Test
+	public void testErrorCreateCustomer(){
+		Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
+		x.setCustomer(true);
+		Boolean y = false;
+		y=opportunityService.createOpportunity(x);
+		Assert.isTrue(!y&&opportunityRepository.getAllOpportunities().size()==0);
+	}
+
 	@Test
 	public void ListOpportunitiesTest(){
 		Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");

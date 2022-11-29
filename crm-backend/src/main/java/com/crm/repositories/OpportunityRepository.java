@@ -22,13 +22,25 @@ public class OpportunityRepository {
     }
 
 	public List<Opportunity> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Opportunity> res= new ArrayList<Opportunity>();
+		for(Opportunity o: list) {
+			if(o.isCustomer()) {
+				res.add(o);
+			}
+		}
+		return res;
 	}
 	
 	public List<Opportunity> getAllNonCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Opportunity> res= new ArrayList<Opportunity>();
+		for(Opportunity o: list) {
+			if(!o.isCustomer()) {
+				res.add(o);
+			}
+		}
+		return res;
 	}
+	
+	
     
 }
