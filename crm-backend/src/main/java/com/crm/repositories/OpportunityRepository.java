@@ -16,4 +16,8 @@ public class OpportunityRepository {
     	Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
         list.add(x);
         }
+    
+    public List<Opportunity> getAllOpportunities() {
+        return list;
+    }
 }

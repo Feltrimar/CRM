@@ -20,23 +20,23 @@ public class OpportunityServiceTest {
 	OpportunityRepository opportunityRepository;
 	
 	//Testing trying to create a new Opportunity
-	@Test
-	public void testCreateOpportunity(){
-		Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-		Boolean y = false;
-		y=opportunityService.createOpportunity(x);
-		Assert.isTrue(y);
-	}
-	
+		@Test
+		public void testCreateOpportunity(){
+			Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
+			Boolean y = false;
+			y=opportunityService.createOpportunity(x);
+			Assert.isTrue(y&&opportunityRepository.getAllOpportunities().size()==1);
+		}
+		
 	//Testing trying to create directly a opportunity with the same parameters IT MUST SEND ERROR
-	@Test
-	public void testErrorCreateDuplicatedOpportunity(){
-		Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-		opportunityRepository.setUp();
-		Boolean y = false;
-		y=opportunityService.createOpportunity(x);
-		Assert.isTrue(!y);
-	}
+		@Test
+		public void testErrorCreateDuplicatedOpportunity(){
+			Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
+			Boolean y = false;
+			y=opportunityService.createOpportunity(x);
+			Assert.isTrue(!y&&opportunityRepository.getAllOpportunities().size()==1);
+		}
+	
 	
 	//Testing trying to create directly a customer from a Opportunity IT MUST SEND ERROR
 	@Test
@@ -45,6 +45,6 @@ public class OpportunityServiceTest {
 		x.setCustomer(true);
 		Boolean y = false;
 		y=opportunityService.createOpportunity(x);
-		Assert.isTrue(!y);
+		Assert.isTrue(!y&&opportunityRepository.getAllOpportunities().size()==0);
 	}
 }
