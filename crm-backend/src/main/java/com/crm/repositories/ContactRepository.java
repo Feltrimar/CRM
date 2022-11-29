@@ -21,7 +21,8 @@ public class ContactRepository {
 	public void setUp() {
 		Calendar date = Calendar.getInstance();
 		Opportunity y= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-		Contact x= new Contact(date,ContactType.CALL,y);		
+		Contact x= new Contact(date,ContactType.CALL,y);
+		list.add(x);
 	}
     
 }

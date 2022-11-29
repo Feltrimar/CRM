@@ -42,14 +42,14 @@ public class ContactServiceTest {
 			
 		//Testing trying to create directly a opportunity with the same parameters IT MUST NOT SEND ERROR
 			@Test
-			public void testErrorCreateDuplicatedContact(){
+			public void testSuccessCreateDuplicatedContact(){
 				Opportunity y= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 				Calendar date = Calendar.getInstance();
 				Contact x= new Contact(date,ContactType.CALL,y);
 				Boolean bool = false;
 				contactRepository.setUp();
 				bool=contactService.createContact(x);
-				Assert.isTrue(!bool&&contactRepository.getAllContacts().size()==1);
+				Assert.isTrue(bool&&contactRepository.getAllContacts().size()==2);
 			}
 	
 }
