@@ -13,8 +13,6 @@ import com.crm.models.Contact.ContactType;
 
 @Repository
 public class ContactRepository {
-	@Autowired
-	private OpportunityRepository oR;
     private List<Contact> list = new ArrayList<Contact>();
     
     public List<Contact> getAllContacts() {
@@ -83,10 +81,10 @@ public class ContactRepository {
 	public void deleteContact(int id) {
 		Contact x = getContactById(id);
 		x.setDeleted(true);
-		for(Opportunity o: oR.getAllOpportunities()) {
+		Opportunity o=x.getOpportunity();
 			if(o.getContacts().contains(x)&&o.isDeleted()==false) {
 			o.getContacts().remove(x);
-		}
+		
 		
 	  }    
 	}

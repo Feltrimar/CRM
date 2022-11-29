@@ -14,6 +14,7 @@ import com.crm.models.User;
 public class OpportunityRepository {
 	@Autowired
 	private ContactRepository cR;
+	
     private List<Opportunity> list = new ArrayList<Opportunity>();
     
     public void setUp() {

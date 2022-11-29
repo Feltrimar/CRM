@@ -51,7 +51,27 @@ public class OpportunityService {
 		return res;
 	}
 		
-		private List<Opportunity> getOpportunities() {
+	public List<Opportunity> getOpportunities() {
 			return repository.getAllOpportunities();
 		}
+		
+	public List<Opportunity> getValidOpportunities() {
+			return repository.getActiveOpportunities();
+		}
+		
+	public List<Opportunity> getAllCustomers() {
+			return repository.getAllCustomers();
+		}
+		
+	public List<Opportunity> getNonCustomers() {
+			return repository.getAllNonCustomers();
+		}
+		
+	public Opportunity getOpportunityById(int id) {
+			return repository.getOpportunityById(id);
+		}
+		
+	public void deleteOpportunity(int id) {
+		repository.deleteOpportunity(id);
+	}
 }
