@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class Contact {
-	enum Type {
+	public enum ContactType {
 	    CALL,
 	    EMAIL,
 	    VISIT,
@@ -16,7 +16,7 @@ public class Contact {
 	private int id;
 	private boolean isDeleted;
 	private Calendar date;
-	private Type type;
+	private ContactType type;
 	private Opportunity opportunity;
 	private boolean accepted;
 	private String reason;
@@ -45,11 +45,11 @@ public class Contact {
 		this.date = date;
 	}
 
-	public Type getType() {
+	public ContactType getType() {
 		return type;
 	}
 
-	public void setType(Type type) {
+	public void setType(ContactType type) {
 		this.type = type;
 	}
 
@@ -77,14 +77,13 @@ public class Contact {
 		this.reason = reason;
 	}
 
-	public Contact(int id, Calendar date, Type type, Opportunity opportunity, boolean accepted, String reason) {
+	public Contact(Calendar date, ContactType type, Opportunity opportunity) {
 		super();
-		this.id = id;
+		id=0;
 		this.date = date;
 		this.type = type;
 		this.opportunity = opportunity;
-		this.accepted = accepted;
-		this.reason = reason;
+		accepted=false;
 	}
 	
 }
