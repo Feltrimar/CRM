@@ -1,5 +1,6 @@
 package com.crm.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -15,15 +16,17 @@ public class Opportunity {
 	private String telephone;
 	List<Contact> contacts;
 	
-	
-	public Opportunity(int id, String name, String surname, String email, String telephone, List<Contact> contacts) {
+	public Opportunity(String name, String surname, String email, String telephone) {
 		super();
-		this.id = id;
+		id=0;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.telephone = telephone;
-		this.contacts = contacts;
+		
+		isDeleted=false;
+		isCustomer=false;
+		contacts = new ArrayList<Contact>();
 	}
 
 	public int getId() {
