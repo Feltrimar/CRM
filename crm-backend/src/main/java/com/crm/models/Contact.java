@@ -2,6 +2,9 @@ package com.crm.models;
 
 import java.util.Calendar;
 
+import lombok.Data;
+
+@Data
 public class Contact {
 	enum Type {
 	    CALL,

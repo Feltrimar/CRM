@@ -2,6 +2,9 @@ package com.crm.models;
 
 import java.util.List;
 
+import lombok.Data;
+
+@Data
 public class Opportunity {
 	private int id;
 	private boolean isCustomer;
@@ -11,6 +14,7 @@ public class Opportunity {
 	private String email;
 	private String telephone;
 	List<Contact> contacts;
+	
 	
 	public Opportunity(int id, String name, String surname, String email, String telephone, List<Contact> contacts) {
 		super();
