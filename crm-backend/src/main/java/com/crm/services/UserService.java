@@ -15,12 +15,12 @@ public class UserService {
 	private UserRepository repository;
 	
 	public Boolean logIn(User x) {
-		Boolean bool = true;
+		Boolean bool = false;
 		List<User> aux=getUsers();
 		for(User u: aux) {
 			if(u.getUserName() == x.getUserName()) {
 				if(u.getPassword() == x.getPassword()) {
-					bool = false;
+					bool = true;
 					break;
 				}
 			}

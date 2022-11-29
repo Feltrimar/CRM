@@ -22,7 +22,7 @@ public class UserSeviceTest {
 	public void logInTest(){
 		User x = new User(1, "prueba1", "prueba1");
 		userRepository.setUp();
-		Boolean y = false;
+		Boolean y = null;
 		y=userService.logIn(x);
 		Assert.isTrue(y);
 	}
@@ -31,7 +31,7 @@ public class UserSeviceTest {
 	public void logInErrorTest(){
 		User x = new User(1, "prueba1", "");
 		userRepository.setUp();
-		Boolean y = false;
+		Boolean y = null;
 		y=userService.logIn(x);
 		Assert.isTrue(!y);
 	}

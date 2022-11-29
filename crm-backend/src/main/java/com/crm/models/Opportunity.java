@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 public class Opportunity {
 	private int id;
-	private boolean isCustomer;
-	private boolean isDeleted;
+	private boolean isCustomer=false;
+	private boolean isDeleted=false;
 	private String name;
 	private String surname;
 	private String email;
@@ -23,9 +23,6 @@ public class Opportunity {
 		this.surname = surname;
 		this.email = email;
 		this.telephone = telephone;
-		
-		isDeleted=false;
-		isCustomer=false;
 		contacts = new ArrayList<Contact>();
 	}
 
