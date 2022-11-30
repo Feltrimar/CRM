@@ -43,7 +43,7 @@ public class OpportunityService {
 		boolean res=true;
 		List<Opportunity> aux=getOpportunities();
 		for(Opportunity o: aux) {
-			if(o.getName() == name && o.getSurname() == surname && o.getEmail() == email && o.getTelephone() == telephone) {
+			if(o.getName().equals(name) && o.getSurname().equals(surname) && o.getEmail().equals(email) && o.getTelephone().equals(telephone)) {
 					res = false;
 					break;
 			}
@@ -74,4 +74,10 @@ public class OpportunityService {
 	public void deleteOpportunity(int id) {
 		repository.deleteOpportunity(id);
 	}
+	
+	public void setAsCustomer(int Oid, int Cid) {
+		repository.setAsCustomer(Oid,Cid);
+	   
+	}
+
 }

@@ -11,6 +11,8 @@ public class Contact {
 	    EMAIL,
 	    VISIT,
 	    OTHER
+	    
+	    
 	  }
 	
 	private int id;

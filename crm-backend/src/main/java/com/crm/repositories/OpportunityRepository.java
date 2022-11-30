@@ -15,12 +15,20 @@ public class OpportunityRepository {
 	@Autowired
 	private ContactRepository cR;
 	
-    private List<Opportunity> list = new ArrayList<Opportunity>();
+    private List<Opportunity> list = start();
     
     public void setUp() {
     	Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
         list.add(x);
         }
+    
+    public List<Opportunity> start() {
+    	Opportunity x= new Opportunity("Felipa","Trinidad","feipetm@gmail.com","601101754");
+    	List<Opportunity> lista = new ArrayList<Opportunity>();
+        lista.add(x);
+		return lista;
+        }
+
     
     public List<Opportunity> getAllOpportunities() {
 		return list;
@@ -73,11 +81,19 @@ public class OpportunityRepository {
 		Opportunity x = getOpportunityById(id);
 		x.setDeleted(true);
 		for(Contact o: cR.getAllContacts()) {
-			if(o.getOpportunity()==x&&o.isDeleted()==false) {
+			if(o.getOpportunity().equals(x)&&o.isDeleted()==false) {
 			cR.deleteContact(o.getId());
+			}
+			
 		}
-		
-	  }    
+		}
+	public void setAsCustomer(int Oid, int Cid) {
+		Opportunity x = getOpportunityById(Oid);
+		x.setCustomer(true);
+		Contact y = cR.getContactById(Cid);
+		x.getContacts().add(y);
+		y.setOpportunity(x);
+	   
 	}
     
 }

@@ -80,7 +80,7 @@ public class ContactServiceTest {
 				contactRepository.getAllContacts().add(a);
 				contactRepository.getAllContacts().add(b);
 				contactRepository.getAllContacts().add(c);
-				Assert.isTrue(contactRepository.getContacts(ContactType.CALL).size()==3);
+				Assert.isTrue(contactRepository.getContactsByType(0).size()==3);
 			}
 			
 			@Test
@@ -95,7 +95,7 @@ public class ContactServiceTest {
 				contactRepository.getAllContacts().add(a);
 				contactRepository.getAllContacts().add(b);
 				contactRepository.getAllContacts().add(c);
-				Assert.isTrue(contactRepository.getContacts(ContactType.EMAIL).size()==1);
+				Assert.isTrue(contactRepository.getContactsByType(1).size()==1);
 			}
 			
 			@Test
@@ -110,7 +110,7 @@ public class ContactServiceTest {
 				contactRepository.getAllContacts().add(a);
 				contactRepository.getAllContacts().add(b);
 				contactRepository.getAllContacts().add(c);
-				Assert.isTrue(contactRepository.getContacts(ContactType.VISIT).size()==2);
+				Assert.isTrue(contactRepository.getContactsByType(2).size()==2);
 			}
 			
 			@Test
@@ -125,7 +125,7 @@ public class ContactServiceTest {
 				contactRepository.getAllContacts().add(a);
 				contactRepository.getAllContacts().add(b);
 				contactRepository.getAllContacts().add(c);
-				Assert.isTrue(contactRepository.getContacts(ContactType.OTHER).size()==0);
+				Assert.isTrue(contactRepository.getContactsByType(3).size()==0);
 			}
 			
 			@Test

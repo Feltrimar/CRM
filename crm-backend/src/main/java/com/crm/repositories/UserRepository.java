@@ -9,8 +9,16 @@ import com.crm.models.User;
 
 @Repository
 public class UserRepository {
-    private List<User> list = new ArrayList<User>();
+    private List<User> list = start();
     
+    
+    
+    public List<User> start() {
+    	List<User> list = new ArrayList<User>();
+    	User x = new User(1, "User", "Password");
+        list.add(x);
+		return list;
+        }
     
     public void setUp() {
     	User x = new User(1, "prueba1", "prueba1");
