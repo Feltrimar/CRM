@@ -1,6 +1,7 @@
 package com.crm.services;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class ContactService {
 		return createContact(x.getDate(),x.getType(),x.getOpportunity());
 	}
 
-	private Boolean createContact(Calendar date, ContactType type, Opportunity opportunity) {
+	private Boolean createContact(Date date, ContactType type, Opportunity opportunity) {
 		Contact c=new Contact(date,type,opportunity);
 		c.setId(repository.getAllContacts().size());
 		return repository.getAllContacts().add(c);
@@ -36,6 +37,13 @@ public class ContactService {
 		
 	public Contact getContactById(int id) {
 			return repository.getContactById(id);
+		}
+	public List<Contact> getFutureContacts(Opportunity id) {
+		return repository.getFutureContacts(id);
+		}
+	
+	public List<Contact> getFutureContacts() {
+		return repository.getFutureContacts();
 		}
 		
 	public void deleteContact(int id) {

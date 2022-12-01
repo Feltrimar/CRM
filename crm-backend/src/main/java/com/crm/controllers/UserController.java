@@ -3,6 +3,8 @@ package com.crm.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +22,13 @@ public class UserController {
     private UserService service;
 	
 	@PostMapping
-    public Boolean logIn(@RequestBody User x) {
-        return service.logIn(x);
+    public ResponseEntity<User> logIn(@RequestBody User x) {
+		Boolean res;
+		res=service.logIn(x);
+		if(res) {
+			return new ResponseEntity<>(x, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(x, HttpStatus.NOT_FOUND); }
     }
 	
 	@GetMapping

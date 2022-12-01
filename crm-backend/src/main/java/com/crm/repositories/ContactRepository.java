@@ -2,6 +2,8 @@ package com.crm.repositories;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +26,26 @@ public class ContactRepository {
     
 	private List<Contact> start() {
 		Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-		Calendar date = Calendar.getInstance();
+		Date date = new Date();
+		Date date2 = new Date(230,10,10);
 		Contact a= new Contact(date,ContactType.CALL,x);
+		Contact b= new Contact(date,ContactType.CALL,x);
+		b.setId(1);
+		Contact c= new Contact(date,ContactType.EMAIL,x);
+		c.setId(2);
+		c.setAccepted(true);
+		Contact d= new Contact(date2,ContactType.VISIT,x);
+		d.setId(3);
+		a.setReason("No quería trabajar");
+		b.setReason("No quería trabajar");
+		c.setReason("Quería trabajar");
+		d.setReason("No quería trabajar");
+
 		List<Contact> lista = new ArrayList<Contact>();
 		lista.add(a);
+		lista.add(b);
+		lista.add(c);
+		lista.add(d);
 		return lista;
 	}
 
@@ -42,17 +60,28 @@ public class ContactRepository {
 	}
 
 	public void setUp() {
-		Calendar date = Calendar.getInstance();
+		Date date = new Date();
 		Opportunity y= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 		Contact x= new Contact(date,ContactType.CALL,y);
 		list.add(x);
 	}
 
 	public List<Contact> getFutureContacts(Opportunity x) {
-		Calendar date = Calendar.getInstance();
+		Date date = new Date();
 		List<Contact> res= new ArrayList<Contact>();
 		for(Contact o: list) {
 			if(o.getOpportunity().equals(x)&&o.getDate().after(date)&&!o.isDeleted()) {
+				res.add(o);
+			}
+		}
+		return res;
+	}
+	
+	public List<Contact> getFutureContacts() {
+		Date date = new Date();
+		List<Contact> res= new ArrayList<Contact>();
+		for(Contact o: list) {
+			if(o.getDate().after(date)&&!o.isDeleted()) {
 				res.add(o);
 			}
 		}

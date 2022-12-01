@@ -1,6 +1,7 @@
 package com.crm.services.test;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +35,7 @@ public class ContactServiceTest {
 		@Test
 			public void testCreateContact(){
 				Opportunity y= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact x= new Contact(date,ContactType.CALL,y);
 				Boolean bool = false;
 				bool=contactService.createContact(x);
@@ -45,7 +46,7 @@ public class ContactServiceTest {
 			@Test
 			public void testSuccessCreateDuplicatedContact(){
 				Opportunity y= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact x= new Contact(date,ContactType.CALL,y);
 				Boolean bool = false;
 				contactRepository.setUp();
@@ -58,7 +59,7 @@ public class ContactServiceTest {
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity y= new Opportunity("Felipo","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity z= new Opportunity("Felipi","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact a= new Contact(date,ContactType.CALL,x);
 				Contact b= new Contact(date,ContactType.CALL,y);
 				Contact c= new Contact(date,ContactType.CALL,z);
@@ -73,7 +74,7 @@ public class ContactServiceTest {
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity y= new Opportunity("Felipo","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity z= new Opportunity("Felipi","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact a= new Contact(date,ContactType.CALL,x);
 				Contact b= new Contact(date,ContactType.CALL,y);
 				Contact c= new Contact(date,ContactType.CALL,z);
@@ -88,7 +89,7 @@ public class ContactServiceTest {
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity y= new Opportunity("Felipo","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity z= new Opportunity("Felipi","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact a= new Contact(date,ContactType.CALL,x);
 				Contact b= new Contact(date,ContactType.EMAIL,y);
 				Contact c= new Contact(date,ContactType.CALL,z);
@@ -103,7 +104,7 @@ public class ContactServiceTest {
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity y= new Opportunity("Felipo","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity z= new Opportunity("Felipi","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact a= new Contact(date,ContactType.VISIT,x);
 				Contact b= new Contact(date,ContactType.CALL,y);
 				Contact c= new Contact(date,ContactType.VISIT,z);
@@ -118,7 +119,7 @@ public class ContactServiceTest {
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity y= new Opportunity("Felipo","Trinidad","feipetm@gmail.com","601101754");
 				Opportunity z= new Opportunity("Felipi","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact a= new Contact(date,ContactType.CALL,x);
 				Contact b= new Contact(date,ContactType.CALL,y);
 				Contact c= new Contact(date,ContactType.CALL,z);
@@ -131,7 +132,7 @@ public class ContactServiceTest {
 			@Test
 			public void ListContactsOfAOpportunity(){
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
+				Date date = new Date();
 				Contact a= new Contact(date,ContactType.CALL,x);
 				Contact b= new Contact(date,ContactType.VISIT,x);
 				Contact c= new Contact(date,ContactType.CALL,x);
@@ -144,8 +145,8 @@ public class ContactServiceTest {
 			@Test
 			public void ListFutureContactsTest(){
 				Opportunity x= new Opportunity("Felipe","Trinidad","feipetm@gmail.com","601101754");
-				Calendar date = Calendar.getInstance();
-				Calendar date2 = new GregorianCalendar(2023,0,31);
+				Date date = new Date();
+				Date date2 = new Date(130, 5,3);
 				Contact a= new Contact(date,ContactType.CALL,x);
 				Contact b= new Contact(date2,ContactType.CALL,x);
 				Contact c= new Contact(date,ContactType.CALL,x);

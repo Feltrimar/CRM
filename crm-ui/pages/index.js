@@ -10,14 +10,11 @@ export default Login;
 
 function Login() {
     const router = useRouter();
-
-    
-
-    // get functions to build form with useForm() hook
     const { register, handleSubmit, formState } = useForm();
     const { errors } = formState;
 
     function onSubmit({ userName, password }) {
+      
       const requestOptions = {
         method: 'POST',
         headers:{'Content-Type':'application/json'},
@@ -30,7 +27,12 @@ function Login() {
   
       };
           fetch('http://localhost:8080/api/v1/users',requestOptions)
-            .then(((res) => res.json))
+            .then((data) => {
+              console.log(data);
+              if(data.status==200){
+                router.push('/posts/dashboard');
+               } 
+              })
     }
 
     return (

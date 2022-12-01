@@ -1,6 +1,9 @@
 package com.crm.models;
 
 import java.util.Calendar;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -17,7 +20,9 @@ public class Contact{
 	
 	private int id;
 	private boolean isDeleted;
-	private Calendar date;
+	
+    @JsonFormat(pattern="yyyy-MM-dd")
+	private Date date;
 	private ContactType type;
 	private Opportunity opportunity;
 	private boolean accepted;
@@ -38,12 +43,11 @@ public class Contact{
 	public void setDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
 	}
-
-	public Calendar getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(Calendar date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -79,7 +83,7 @@ public class Contact{
 		this.reason = reason;
 	}
 
-	public Contact(Calendar date, ContactType type, Opportunity opportunity) {
+	public Contact(Date date, ContactType type, Opportunity opportunity) {
 		super();
 		id=0;
 		this.date = date;
