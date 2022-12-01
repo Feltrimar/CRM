@@ -5,7 +5,7 @@ import java.util.Calendar;
 import lombok.Data;
 
 @Data
-public class Contact {
+public class Contact{
 	public enum ContactType {
 	    CALL,
 	    EMAIL,

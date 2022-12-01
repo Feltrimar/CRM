@@ -1,5 +1,7 @@
 package com.crm.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
@@ -8,9 +10,8 @@ public class User {
 	private String userName;
 	private String password;
 	
-	public User(int id, String userName, String password) {
-		super();
-		this.id = id;
+	public User(@JsonProperty("userName") String userName, @JsonProperty("password") String password) {
+		this.id=0;
 		this.userName = userName;
 		this.password = password;
 	}

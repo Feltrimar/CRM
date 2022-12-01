@@ -15,13 +15,13 @@ public class UserRepository {
     
     public List<User> start() {
     	List<User> list = new ArrayList<User>();
-    	User x = new User(1, "User", "Password");
+    	User x = new User("user", "password");
         list.add(x);
 		return list;
         }
     
     public void setUp() {
-    	User x = new User(1, "prueba1", "prueba1");
+    	User x = new User("prueba1", "prueba1");
         list.add(x);
         }
         

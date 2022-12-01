@@ -17,10 +17,13 @@ public class UserService {
 	public Boolean logIn(User x) {
 		Boolean bool = false;
 		List<User> aux=getUsers();
-		System.out.println(repository.getAllUsers());		
 		for(User u: aux) {
+			System.out.println(x);
+			System.out.println(u.getUserName()+ " " +u.getPassword()+" , "+x.getUserName() + " " + x.getPassword());
 			if(u.getUserName().equals(x.getUserName())) {
+				System.out.println("a");
 				if(u.getPassword().equals(x.getPassword())) {
+					System.out.println("b");
 					bool = true;
 					break;
 				}
