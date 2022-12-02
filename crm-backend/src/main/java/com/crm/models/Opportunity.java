@@ -3,6 +3,8 @@ package com.crm.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
@@ -16,7 +18,7 @@ public class Opportunity {
 	private String telephone;
 	List<Contact> contacts;
 	
-	public Opportunity(String name, String surname, String email, String telephone) {
+	public Opportunity(@JsonProperty("name")String name, @JsonProperty("surname")String surname, @JsonProperty("email")String email, @JsonProperty("telephone")String telephone) {
 		super();
 		id=0;
 		this.name = name;

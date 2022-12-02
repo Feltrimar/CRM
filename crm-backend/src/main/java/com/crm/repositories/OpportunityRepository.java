@@ -24,8 +24,11 @@ public class OpportunityRepository {
     
     public List<Opportunity> start() {
     	Opportunity x= new Opportunity("Felipa","Trinidad","feipetm@gmail.com","601101754");
+    	Opportunity o= new Opportunity("Felipo","Trinidad","feipetm@gmail.com","601101754");
+    	x.setCustomer(true);
     	List<Opportunity> lista = new ArrayList<Opportunity>();
         lista.add(x);
+        lista.add(o);
 		return lista;
         }
 

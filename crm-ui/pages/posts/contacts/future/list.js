@@ -10,7 +10,7 @@ export default function list() {
     const router = useRouter();
     const getApiData = async () => {
         const response = await fetch(
-          "http://localhost:8080/api/v1/contacts/all"
+          "http://localhost:8080/api/v1/contacts/future"
         ).then((response) => response.json());
       
         // update the state

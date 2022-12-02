@@ -26,7 +26,7 @@ export default function Dashboard() {
               <p>List every Opportunity</p>
             </Link>
   
-            <Link href="/posts/opportunities/list" className={styles.card}>
+            <Link href="/posts/opportunities/accepted/list" className={styles.card}>
               <h3>List of Customers &rarr;</h3>
               <p>List every opportunity that has accepted.</p>
             </Link>
@@ -36,10 +36,10 @@ export default function Dashboard() {
               <p>List all contacts, both happened and in the future.</p>
             </Link>
   
-            <Link href="/posts/contacts/list" className={styles.card}>
+            <Link href="/posts/contacts/future/list" className={styles.card}>
               <h3>List of Current Contacts &rarr;</h3>
               <p>
-                Choose only Contacts that already happened
+                Choose only Contacts that havent happened yet
               </p>
             </Link>
           </div>

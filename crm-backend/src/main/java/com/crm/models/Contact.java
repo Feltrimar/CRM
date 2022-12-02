@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -89,6 +90,14 @@ public class Contact{
 		this.date = date;
 		this.type = type;
 		this.opportunity = opportunity;
+		accepted=false;
+	}
+	
+	public Contact(@JsonProperty("date") Date date, @JsonProperty("type") String type, @JsonProperty("opportunity") int opportunityId) {
+		super();
+		id=0;
+		this.type=ContactType.valueOf(type);
+		this.date = date;
 		accepted=false;
 	}
 	
